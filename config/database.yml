@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: dielo-prod_development
+  host: <%= ENV['DIELOPROD_DATABASE_HOST'] %>
+  database: <%= ENV['DIELOPROD_DATABASE'] %>
+  username: <%= ENV['DIELOPROD_DATABASE_USER'] %>
+  password: <%= ENV['DIELOPROD_DATABASE_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
