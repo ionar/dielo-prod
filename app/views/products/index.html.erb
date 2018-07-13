@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Produtos</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Peso</th>
+      <th>Peso minimo</th>
+      <th>Peso maximo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, product %></td>
+        <td><%= product.peso %></td>
+        <td><%= product.peso_minimo %></td>
+        <td><%= product.peso_maximo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn">
+  <%= link_to new_product_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

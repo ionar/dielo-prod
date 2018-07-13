@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<h2>Produto #<%= @product.id %></h2>
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @product.peso %>
+</p>
+
+<p>
+  <strong>Peso minimo:</strong>
+  <%= @product.peso_minimo %>
+</p>
+
+<p>
+  <strong>Peso maximo:</strong>
+  <%= @product.peso_maximo %>
+</p>
+
+
+
+
+
+<div class="fixed-action-btn">
+  <%= link_to edit_product_path(@product), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">create</i>
+  <% end %>
+  <%= link_to @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to products_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

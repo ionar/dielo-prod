@@ -11,5 +11,16 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "materialize";
- @import "material_icons";
+
+@import "materialize";
+@import "material_icons";
+@import "scaffolds";
+
+.logo {
+    display: inline-block;
+    height: 100%;
+}
+
+.logo>img {
+    vertical-align: middle
+}

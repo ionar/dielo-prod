@@ -12,6 +12,28 @@
   </head>
 
   <body>
+  <nav class="red darken-3" role="navigation">
+    <div class="nav-wrapper container">
+      <%= link_to root_path, id: "logo-container", class: "brand-logo logo" do %>
+          <%= image_tag "dielo-logo-40.png", alt: "Dielo Prod" %>
+      <% end %>
+      <ul class="right hide-on-med-and-down">
+        <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
+        <li><a href="#2">Navbar Link</a></li>
+        <li><a href="#3">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <section class="container">
     <%= yield %>
+  </section>
   </body>
 </html>
