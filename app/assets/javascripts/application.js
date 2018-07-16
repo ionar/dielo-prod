@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize
@@ -20,19 +21,11 @@
 //= require_tree .
 
 $(document).on("turbolinks:load", function() {
-  //$('.carousel').carousel();
+  $('select').material_select();
   $(".button-collapse").sideNav();
+  Materialize.updateTextFields();  
+  Waves.displayEffect(); 
+  $('.dropdown-button').dropdown(); 
+  $('input#input_text, textarea#textarea2').characterCounter();
+
 });
-
-$(document).on("page:change", function() {
-  Materialize.updateTextFields();  #reinitialize form label
-  Waves.displayEffect(); #reinitialize wave effect on button
-  $('.dropdown-button').dropdown(); #reinitialize dropdown
-});
-
-
-var formsInit = function() {
-    $('select').material_select();
-};
-
-$(document).on('page:load', formsInit) //adaptation to turbolinks
