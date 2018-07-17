@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DieloProd</title>
+    <title>Dielo - Amostragem</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,18 +19,22 @@
       <% end %>
       <ul class="right hide-on-med-and-down">
         <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+        <li class="<%= active?('samplings')%>"><%= link_to "Amostragens", samplings_path %></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
-        <li><a href="#2">Navbar Link</a></li>
-        <li><a href="#3">Navbar Link</a></li>
+        <li class="<%= active?('samplings')%>"><%= link_to "Amostragens", samplings_path %></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+
+  <% flash.each do |message_type, message| %>
+      <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
+  <% end %>
+
+
 
   <section class="container">
     <%= yield %>

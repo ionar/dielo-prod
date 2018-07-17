@@ -1,0 +1,33 @@
+<h4>Amostragens</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Data</th>
+      <th>Peso</th>
+      <th>Lote</th>
+      <th>Quantidade produzida</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @samplings.each do |sampling| %>
+      <tr>
+        <td><%= link_to sampling.product.name, sampling %></td>
+        <td><%= sampling.data.strftime("%d/%m/%Y")  %></td>
+        <td><%= sampling.peso %></td>
+        <td><%= sampling.lote %></td>
+        <td><%= sampling.quantidade_produzida %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<div class="fixed-action-btn">
+  <%= link_to new_sampling_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

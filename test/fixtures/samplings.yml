@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  data: 2018-07-16
+  peso: 9.99
+  lote: MyString
+  quantidade_produzida: 1
+
+two:
+  product: two
+  data: 2018-07-16
+  peso: 9.99
+  lote: MyString
+  quantidade_produzida: 1

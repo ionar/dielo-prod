@@ -1,0 +1,38 @@
+<h4>Amostragem #<%= @sampling.id %></h4>
+<p>
+  <strong>Product:</strong>
+  <%= @sampling.product.name %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @sampling.data %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @sampling.peso %>
+</p>
+
+<p>
+  <strong>Lote:</strong>
+  <%= @sampling.lote %>
+</p>
+
+<p>
+  <strong>Quantidade produzida:</strong>
+  <%= @sampling.quantidade_produzida %>
+</p>
+
+
+<div class="fixed-action-btn">
+  <%= link_to edit_sampling_path(@sampling), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">create</i>
+  <% end %>
+  <%= link_to @sampling, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to samplings_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

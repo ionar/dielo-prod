@@ -1,0 +1,14 @@
+"pt-BR":
+  activerecord:
+    models:
+      user: 
+        one: Usuario
+        other: Usuarios
+      client:
+        one: Cliente
+        other: Clientes
+    attributes:
+      client:
+        name: Nome
+        email: E-mail
+        notes: Anotações      

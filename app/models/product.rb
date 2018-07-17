@@ -1,3 +1,4 @@
 class Product < ApplicationRecord
-  validates :name, presence: true
+	has_many :samplings, dependent: :destroy
+    validates :name, presence: true
 end
