@@ -1,6 +1,6 @@
 <h4>Produto #<%= @product.id %></h4>
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @product.name %>
 </p>
 
@@ -19,10 +19,6 @@
   <%= @product.peso_maximo %>
 </p>
 
-
-
-
-
 <div class="fixed-action-btn">
   <%= link_to edit_product_path(@product), class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">create</i>
@@ -34,3 +30,19 @@
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>
+
+<h4>Amostragens de <%= @product.name %></h4>
+<hr>
+<% @product.samplings.each do |sampling| %>
+  <p>
+  Data: <strong><%= sampling.data.strftime("%d/%m/%Y") %></strong>
+  </p>
+  <p>
+  Peso da amostra: <strong><%= sampling.peso %></strong>
+  </p>
+  <hr>
+<% end %>
+
+
+
+
