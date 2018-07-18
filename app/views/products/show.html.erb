@@ -32,7 +32,13 @@
 </div>
 
 <h4>Amostragens de <%= @product.name %></h4>
-<hr>
+<%= line_chart [ 
+  {name: "Peso amostragem", data: @product.samplings.group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso)},
+  {name: "Peso máximo", data: Product.joins(:samplings).where(id: @product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso_maximo)},
+  {name: "Peso mínimo", data: Product.joins(:samplings).where(id: @product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso_minimo)}
+  ], xtitle: "Data", ytitle: "Peso", download: true %>
+
+<h4>Histórico</h4>
 <% @product.samplings.each do |sampling| %>
   <p>
   Data: <strong><%= sampling.data.strftime("%d/%m/%Y") %></strong>
@@ -44,5 +50,4 @@
 <% end %>
 
 
-
-
+<%# line_chart @product.samplings.group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso),  min: nil, max: @product.peso_maximo, xtitle: "Data", ytitle: "Peso", download: true, stacked: true %>
