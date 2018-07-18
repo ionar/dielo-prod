@@ -1,5 +1,7 @@
 <h4>Amostragens</h4>
 
+<%= paginate @samplings %>
+
 <table>
   <thead>
     <tr>
@@ -23,9 +25,6 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @samplings %>
-
-
 
 <div class="fixed-action-btn">
   <%= link_to new_sampling_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
