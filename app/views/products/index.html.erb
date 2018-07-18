@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Peso</th>
       <th>Peso minimo</th>
       <th>Peso maximo</th>
     </tr>
@@ -14,7 +13,6 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= link_to product.name, product %></td>
-        <td><%= product.peso %></td>
         <td><%= product.peso_minimo %></td>
         <td><%= product.peso_maximo %></td>
       </tr>

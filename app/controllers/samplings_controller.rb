@@ -4,7 +4,7 @@ class SamplingsController < ApplicationController
   # GET /samplings
   # GET /samplings.json
   def index
-    @samplings = Sampling.all
+    @samplings = Sampling.all.page(params['page']).per(5)
   end
 
   # GET /samplings/1
