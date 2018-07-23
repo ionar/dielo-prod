@@ -27,6 +27,10 @@
 //= require_tree .
 
 $(document).on("turbolinks:load", function() {
+
+  // cocoon gem, open new input after existent
+  $("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
+
   $('.date').pickadate(); 
   $('select').material_select();
   $(".button-collapse").sideNav();

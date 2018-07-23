@@ -1,12 +1,14 @@
 <div class='nested-fields'>
-	<div class="row">
-			<div class='input-field col s10'>
+	<li>
+	<div class="row valign-wrapper">
+			<div class='input-field col'>
 	    		<%= f.input :peso, :placeholder => 'Peso em gramas' %>
 			</div><!-- /.input-field -->
-		<div class="input-field col s2">
-			<%= link_to_remove_association(f, data: {:confirm => 'Tem certeza?'}, class: 'btn-floating waves-effect waves-light btn red') do %>
-	    		<i class='material-icons'>delete</i>
+		<div class="input-field col">
+			<%= link_to_remove_association(f, data: {:confirm => 'Tem certeza?'}, class: 'waves-effect waves-light btn red') do %>
+	    		<i class='material-icons'>delete</i> 
 			<% end %>
 		</div><!-- /col -->
 	</div><!-- /row -->
+</li>
 </div><!-- /.nested-fields -->

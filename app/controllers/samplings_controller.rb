@@ -15,7 +15,9 @@ class SamplingsController < ApplicationController
   # GET /samplings/new
   def new
     @sampling = Sampling.new
-    @weighing = @sampling.weighings.build
+    # @weighing = @sampling.weighings.build
+
+    @weighing =  32.times { |t| @sampling.weighings.build }
   end
 
   # GET /samplings/1/edit
