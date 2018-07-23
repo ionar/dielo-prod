@@ -24,6 +24,15 @@
   <%= @sampling.quantidade_produzida %>
 </p>
 
+<p>
+  <strong>Pesagens:</strong>
+  <ol>
+    <% @sampling.weighings.each do |pesagem| %>
+     <li><%= pesagem.peso %></li>
+    <% end %>
+  </ol>
+</p>
+
 
 <div class="fixed-action-btn">
   <%= link_to edit_sampling_path(@sampling), class: "btn-floating btn-large waves-effect waves-light red" do %>

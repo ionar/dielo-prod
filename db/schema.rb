@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_18_161949) do
+ActiveRecord::Schema.define(version: 2018_07_20_171549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,5 +34,14 @@ ActiveRecord::Schema.define(version: 2018_07_18_161949) do
     t.index ["product_id"], name: "index_samplings_on_product_id"
   end
 
+  create_table "weighings", force: :cascade do |t|
+    t.decimal "peso"
+    t.bigint "sampling_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sampling_id"], name: "index_weighings_on_sampling_id"
+  end
+
   add_foreign_key "samplings", "products"
+  add_foreign_key "weighings", "samplings"
 end

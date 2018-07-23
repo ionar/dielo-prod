@@ -1,9 +1,9 @@
-<h4>Editar amostragem</h4>
+<h4>Editar amostragem #<%= @sampling.id %></h4>
 
 <%= render 'form', sampling: @sampling %>
 
 <div class="fixed-action-btn">
-  <%= link_to @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+  <%= link_to @sampling, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">delete</i>
   <% end %>
   <%= link_to samplings_path, class: "btn-floating btn-large waves-effect waves-light red" do %>

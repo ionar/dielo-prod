@@ -13,14 +13,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-//= require jquery.turbolinks
-//= require jquery_ujs
+
+
 //= require turbolinks
 //= require materialize
 //= require materialize-form
 
 //= require highcharts
 //= require chartkick
+
+//= require cocoon
 
 //= require_tree .
 

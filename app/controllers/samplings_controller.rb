@@ -15,6 +15,7 @@ class SamplingsController < ApplicationController
   # GET /samplings/new
   def new
     @sampling = Sampling.new
+    @weighing = @sampling.weighings.build
   end
 
   # GET /samplings/1/edit
@@ -69,6 +70,6 @@ class SamplingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sampling_params
-      params.require(:sampling).permit(:product_id, :data, :peso, :lote, :quantidade_produzida)
+      params.require(:sampling).permit(:product_id, :data, :peso, :lote, :quantidade_produzida, weighings_attributes: [:id, :peso, :_destroy])
     end
 end

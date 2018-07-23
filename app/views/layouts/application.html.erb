@@ -10,13 +10,14 @@
     <meta name="keywords" content="Dielo, amostragem, sorvete, picole" />
     <meta name="robots" content="ALL" />
     <meta name="rating" content="General" />  
-
+    <%= render 'application/favicon' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%# javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'application/favicon' %>
+    <%# javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-eval' => false %>
+   
 
   </head>
 
