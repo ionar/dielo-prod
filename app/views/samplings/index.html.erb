@@ -7,9 +7,6 @@
     <tr>
       <th>Produto</th>
       <th>Data</th>
-      <th>Peso</th>
-      <th>Lote</th>
-      <th>Qtd produzida</th>
     </tr>
   </thead>
 
@@ -18,9 +15,6 @@
       <tr>
         <td><%= link_to sampling.product.name, sampling %></td>
         <td><%= sampling.data.strftime("%d/%m/%Y")  %></td>
-        <td><%= sampling.peso %></td>
-        <td><%= sampling.lote %></td>
-        <td><%= sampling.quantidade_produzida %></td>
       </tr>
     <% end %>
   </tbody>
