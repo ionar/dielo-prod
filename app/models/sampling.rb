@@ -4,8 +4,9 @@ class Sampling < ApplicationRecord
 
   accepts_nested_attributes_for :weighings, reject_if: :all_blank, allow_destroy: true
   
-  validates :data, :peso, presence: true
+  validates :data, presence: true
   #validates :data, uniqueness: true
 
   default_scope {order(data: :desc)}
+
 end
