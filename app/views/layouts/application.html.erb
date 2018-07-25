@@ -22,23 +22,10 @@
   </head>
 
   <body>
-  <nav class="red darken-3" role="navigation">
-    <div class="nav-wrapper container">
-      <%= link_to root_path, id: "logo-container", class: "brand-logo logo" do %>
-          <%= image_tag "dielo-logo-40.png", alt: "Dielo Prod" %>
-      <% end %>
-      <ul class="right hide-on-med-and-down">
-        <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
-        <li class="<%= active?('samplings')%>"><%= link_to "Amostragens", samplings_path %></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
-        <li class="<%= active?('samplings')%>"><%= link_to "Amostragens", samplings_path %></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+  <% if user_signed_in? %>
+    <%= render partial: 'application/nav' %>
+  <% end %>
+   
 
   <% flash.each do |message_type, message| %>
       <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>

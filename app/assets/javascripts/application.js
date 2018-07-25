@@ -28,6 +28,8 @@
 
 $(document).on("turbolinks:load", function() {
 
+  
+
   // cocoon gem, open new input after existent
   $("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
 
@@ -38,14 +40,12 @@ $(document).on("turbolinks:load", function() {
   Waves.displayEffect(); 
   $('.dropdown-button').dropdown(); 
   $('input#input_text, textarea#textarea2').characterCounter();
-
-// Brazilian Portuguese
-
-
-
-
+  $('.dropdown-trigger').dropdown();
+  
 });
 
+
+// Brazilian Portuguese
 	jQuery.extend( jQuery.fn.pickadate.defaults, {
 	    monthsFull: [ 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro' ],
 	    monthsShort: [ 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez' ],
