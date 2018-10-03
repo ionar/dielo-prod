@@ -25,13 +25,17 @@
     <i class="material-icons">arrow_back</i>
   <% end %>
 </div>
+<% 
+ grafico_maximo = @product.peso_maximo + 30
+ grafico_minimo = @product.peso_minimo - 30
+%>
 
 <h4>Amostragens de <%= @product.name %></h4>
 <%= line_chart [ 
   {name: "Peso amostragem", data: Product.joins(:samplings).where(id: @product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso)},
   {name: "Peso máximo", data: Product.joins(:samplings).where(id: @product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso_maximo)},
   {name: "Peso mínimo", data: Product.joins(:samplings).where(id: @product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso_minimo)}
-  ], xtitle: "Data", ytitle: "Peso", download: true %>
+  ], xtitle: "Data", ytitle: "Peso", min: grafico_minimo, max: grafico_maximo,  download: true %>
 
 <h4>Histórico</h4>
 <% @product.samplings.each do |sampling| %>
