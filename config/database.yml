@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: dielo-prod_production
-  username: dielo-prod
-  password: <%= ENV['DIELO-PROD_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DIELOPROD_DATABASE_HOST'] %>
+  database: <%= ENV['DIELOPROD_DATABASE'] %>
+  username: <%= ENV['DIELOPROD_DATABASE_USER'] %>
+  password: <%= ENV['DIELOPROD_DATABASE_PASSWORD'] %>
