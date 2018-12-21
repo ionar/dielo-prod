@@ -1,6 +1,6 @@
 class SamplingsController < ApplicationController
   before_action :set_sampling, only: [:show, :edit, :update, :destroy]
-  after_action :write_peso, only: [:show, :edit, :update, :destroy]
+  after_action :write_peso, only: [:show, :edit, :update]
 
 
   # GET /samplings
