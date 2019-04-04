@@ -14,6 +14,19 @@ class SamplingsController < ApplicationController
   def show
     peso_medio = @sampling.weighings.average(:peso)
     @sampling.peso = peso_medio
+    @diferenca = @sampling.product.peso_liquido - @sampling.peso
+
+    # calculo de diferenca por unidade
+    #resultado=(a*b)/c;
+
+    a = Float(@sampling.product.peso_liquido)
+    b = @sampling.product.preco
+    c = Float(@sampling.product.peso_liquido - @sampling.peso)
+
+    @diferenca_por_unidade = (b*c)/a
+
+    @diferenca_total = @diferenca_por_unidade * @sampling.quantidade_produzida
+
   end
 
   # GET /samplings/new

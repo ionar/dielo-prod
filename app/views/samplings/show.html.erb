@@ -1,37 +1,79 @@
 <h4>Amostragem #<%= @sampling.id %></h4>
-<p>
-  <strong>Product:</strong>
-  <%= @sampling.product.name %>
-</p>
+<div class="card grey lighten-5">
+  <div class="card-content grey-text text-darken-2">
+    <span class="card-title">Amostragem</span>
+      <p>
+        <strong>Produto:</strong>
+        <%= @sampling.product.name %>
+      </p>
 
-<p>
-  <strong>Data:</strong>
-  <%= @sampling.data.strftime("%d/%m/%Y") %>
-</p>
+      <p>
+        <strong>Data:</strong>
+        <%= @sampling.data.strftime("%d/%m/%Y") %>
+      </p>
 
-<p>
-  <strong>Peso médio:</strong>
-  <%= @sampling.peso %>
-</p>
+      <p>
+        <strong>Peso médio desta amostragem:</strong>
+        <%= @sampling.peso %>g
+      </p>
+  </div>
+</div>
 
-<p>
-  <strong>Lote:</strong>
-  <%= @sampling.lote %>
-</p>
+<div class="card grey lighten-5">
+  <div class="card-content grey-text text-darken-2">
+    <span class="card-title"><%= @sampling.product.name %></span>
+      <p>
+        <strong>Peso líquido do produto:</strong>
+        <%= @sampling.product.peso_liquido %>g
+      </p>
+      <p>
+        <strong>Preço do produto:</strong>
+        <%= number_to_currency(@sampling.product.preco, unit: 'R$', precision: 2, format: "%u %n") %>
+      </p>
 
-<p>
-  <strong>Quantidade produzida:</strong>
-  <%= @sampling.quantidade_produzida %>
-</p>
+      <p>
+        <strong>Lote:</strong>
+        <%= @sampling.lote %>
+      </p>
 
-<p>
-  <strong>Pesagens:</strong>
-  <ol>
-    <% @sampling.weighings.each do |pesagem| %>
-     <li><%= pesagem.peso %></li>
-    <% end %>
-  </ol>
-</p>
+      <p>
+        <strong>Quantidade produzida:</strong>
+        <%= @sampling.quantidade_produzida %>
+      </p>
+  </div>
+</div>
+
+<div class="card grey lighten-5">
+  <div class="card-content grey-text text-darken-2">
+    <span class="card-title">Resultados</span>
+      <p>
+        <strong>Diferença entre o peso líquido do produto e o peso médio da amostragem: (pedo liquido - peso medio)</strong>
+        <%= @diferenca %>g
+      </p>
+
+      <p>
+        <strong>Diferença em valores monetários(por unidade):</strong>
+        <%= number_to_currency(@diferenca_por_unidade, unit: 'R$', precision: 2, format: "%u %n") %>
+      </p>
+      <p>
+        <strong>Diferença em valores monetários(TOTAL):</strong>
+        <%= number_to_currency(@diferenca_total, unit: 'R$', precision: 2, format: "%u %n") %> <%= '(PREJUÍZO)' if @diferenca_total.negative? %>
+      </p>        
+  </div>
+</div>
+
+<div class="card grey lighten-5">
+  <div class="card-content grey-text text-darken-2">
+    <span class="card-title">Pesagens</span>
+      <p>
+        <ol>
+          <% @sampling.weighings.each do |pesagem| %>
+           <li><%= pesagem.peso %></li>
+          <% end %>
+        </ol>
+      </p>
+  </div>
+</div>
 
 <div class="fixed-action-btn">
   <%= link_to edit_sampling_path(@sampling), class: "btn-floating btn-large waves-effect waves-light red" do %>
