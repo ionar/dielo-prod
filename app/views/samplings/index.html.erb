@@ -7,6 +7,7 @@
     <tr>
       <th>Produto</th>
       <th>Data</th>
+      <th>Qtd Prod</th>
     </tr>
   </thead>
 
@@ -15,6 +16,7 @@
       <tr>
         <td><%= link_to sampling.product.name, sampling %></td>
         <td><%= sampling.data.strftime("%d/%m/%Y")  %></td>
+        <td><%= sampling.quantidade_produzida %></td>
       </tr>
     <% end %>
   </tbody>
