@@ -25,7 +25,7 @@ class SamplingsController < ApplicationController
 
     @diferenca_por_unidade = (b*c)/a
 
-    @diferenca_total = @diferenca_por_unidade * @sampling.quantidade_produzida
+    @diferenca_total = @diferenca_por_unidade * Float(@sampling.quantidade_produzida)
 
   end
 
