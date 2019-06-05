@@ -5,7 +5,7 @@
 
   <div class="form-inputs">
     <%= f.association :product, label: "Produto" %>
-    <%= f.input :data %>
+    <%= f.input :data, label: "Data", input_html: { class: 'abre-calendario' } %>
     <%= f.input :lote %>
     <%= f.input :quantidade_produzida %>
     <%= f.hidden_field :peso, label: "Peso - média" %>

@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     @q = Product.ransack(params[:q])
     @q.sorts = 'name' if @q.sorts.empty?
     
-    @products = @q.result.page(params['page']).per(5)
+    @products = @q.result.page(params['page']).per(10)
   end
 
   # GET /products/1

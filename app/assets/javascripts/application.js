@@ -13,52 +13,70 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-
-
 //= require turbolinks
 //= require materialize
 //= require materialize-form
-
 //= require highcharts
 //= require chartkick
-
 //= require cocoon
-
 //= require_tree .
 
 $(document).on("turbolinks:load", function() {
-
-  
-
   // cocoon gem, open new input after existent
   $("#weighings a.add_fields").data("association-insertion-method", 'before').data("association-insertion-node", 'this');
 
-  $('.date').pickadate(); 
-  $('select').material_select();
-  $(".button-collapse").sideNav();
-  Materialize.updateTextFields();  
-  Waves.displayEffect(); 
+  M.Modal._count = 0;
+  $('.modal').modal();
+  //M.textareaAutoResize($('.materialize-textarea')); //colocar em cada form
+  Waves.displayEffect();
+  M.updateTextFields();
   $('.dropdown-button').dropdown(); 
   $('input#input_text, textarea#textarea2').characterCounter();
   $('.dropdown-trigger').dropdown();
+  $('select').formSelect();
+  $('.dropdown-button').dropdown();
+  $('input#input_text, textarea#textarea2').characterCounter();
+  $('.sidenav').sidenav();
+
+  $('.abre-calendario').datepicker({
+  	selectMonths: true,
+  	showDaysInNextAndPreviousMonths: true,
+  	showMonthAfterYear: true,
+    yearRange: 100,
+    autoClose: false,
+    container: 'body',
+    setDefaultDate: false,
+    showClearBtn: true,
+    // Formato da data que aparece no input
+    ////format: 'yyyy-mm-dd',
+    format: 'dd-mm-yyyy',
+    allowInputToggle: true,
+    formatSubmit: 'dd-mm-yyyy', //configurado ou nao em initilizers/time_formats.rb
+    onClose: function() {
+      $(document.activeElement).blur()
+    },
+
+  	i18n: {
+	    today: 'Hoje',
+	    clear: 'Limpar',
+	    done: 'Ok',
+	    nextMonth: 'Próximo mês',
+	    previousMonth: 'Mês anterior',
+	    weekdaysAbbrev: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+	    weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+	    weekdays: ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'],
+	    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+	    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+	}
+  });  
   
 });
 
-
-// Brazilian Portuguese
-	jQuery.extend( jQuery.fn.pickadate.defaults, {
-	    monthsFull: [ 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro' ],
-	    monthsShort: [ 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez' ],
-	    weekdaysFull: [ 'domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado' ],
-	    weekdaysShort: [ 'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab' ],
-	    today: 'hoje',
-	    clear: 'limpar',
-	    close: 'fechar',
-	    //format: 'dddd, d !de mmmm !de yyyy',
-	    format: 'yyyy/mm/dd',
-	    formatSubmit: 'yyyy/mm/dd'
-	});
-
-	jQuery.extend( jQuery.fn.pickatime.defaults, {
-	    clear: 'limpar'
-	});
+// Fix bug with turbolinks and sidenav
+document.addEventListener('turbolinks:before-render', () => {
+  const elem = document.querySelector('.sidenav');
+  const instance = M.Sidenav.getInstance(elem);
+  if (instance) {
+    instance.destroy();
+  }
+});	
