@@ -1,6 +1,9 @@
 <h4>Amostragens</h4>
 
-<%= paginate @samplings %>
+<div class="center-align">
+  <%= paginate @samplings, views_prefix: 'paginator' %>
+  <small><%= page_entries_info @samplings %></small>
+</div>
 
 <table>
   <thead>

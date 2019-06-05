@@ -4,7 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    #@products = Product.all
+    #@products = Product.all.page(params['page']).per(5)
+
+    @q = Product.ransack(params[:q])
+    @q.sorts = 'name' if @q.sorts.empty?
+    
+    @products = @q.result.page(params['page']).per(5)
   end
 
   # GET /products/1

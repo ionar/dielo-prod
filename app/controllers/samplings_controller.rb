@@ -34,7 +34,7 @@ class SamplingsController < ApplicationController
     @sampling = Sampling.new
    
     # @weighing = @sampling.weighings.build
-    @weighing =  32.times { |t| @sampling.weighings.build }
+    @weighing =  160.times { |t| @sampling.weighings.build }
   end
 
   # GET /samplings/1/edit
