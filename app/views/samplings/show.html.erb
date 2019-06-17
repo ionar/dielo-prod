@@ -47,18 +47,19 @@
   <div class="card-content grey-text text-darken-2">
     <span class="card-title">Resultados</span>
       <p>
-        <strong>Diferença entre o peso líquido do produto e o peso médio da amostragem: (pedo liquido - peso medio)</strong>
+        <strong>Diferença entre o peso líquido do produto e o peso médio da amostragem: (peso liquido - peso medio)</strong>
         <%= @diferenca %>g
       </p>
-
+<!--
       <p>
         <strong>Diferença em valores monetários(por unidade):</strong>
-        <%= number_to_currency(@diferenca_por_unidade, unit: 'R$', precision: 2, format: "%u %n") %>
+        <%# number_to_currency(@diferenca_por_unidade, unit: 'R$', precision: 2, format: "%u %n") %>
       </p>
       <p>
         <strong>Diferença em valores monetários(TOTAL):</strong>
-        <%= number_to_currency(@diferenca_total, unit: 'R$', precision: 2, format: "%u %n") %> <%= '(PREJUÍZO)' if @diferenca_total.negative? %>
-      </p>        
+        <%# number_to_currency(@diferenca_total, unit: 'R$', precision: 2, format: "%u %n") %> <%# '(PREJUÍZO)' if @diferenca_total.negative? %>
+      </p>
+-->
   </div>
 </div>
 
