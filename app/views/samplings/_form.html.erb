@@ -4,8 +4,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%# f.association :product, label: "Produto" %>
-    <%= f.association :product, label: "Produto", label_method: :product_label %>
+    <%= f.association :product, :collection => Product.all.order(:name), label: "Produto", label_method: :product_label %>
     <%= f.input :data, label: "Data", input_html: { class: 'abre-calendario' } %>
     <%= f.input :lote %>
     <%= f.input :quantidade_produzida %>
