@@ -4,7 +4,8 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :product, label: "Produto" %>
+    <%# f.association :product, label: "Produto" %>
+    <%= f.association :product, label: "Produto", label_method: :product_label %>
     <%= f.input :data, label: "Data", input_html: { class: 'abre-calendario' } %>
     <%= f.input :lote %>
     <%= f.input :quantidade_produzida %>
@@ -27,7 +28,7 @@
     </div><!-- /.card -->
   </div>
 
-  <div class="form-actions right-align">
+  <div class="form-actions center-align">
       <%= link_to 'Cancelar', :back, :class => 'waves-effect waves-light btn' %>
       <%= button_tag(type: 'submit', class: "btn waves-effect waves-light") do %>
         Salvar <i class="material-icons right">done</i>
