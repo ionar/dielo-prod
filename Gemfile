@@ -70,7 +70,7 @@ gem 'jquery-rails'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'materialize-form'
-gem 'simple_form'
+gem "simple_form", ">= 5.0.0"
 gem 'jquery-turbolinks'
 gem 'chartkick'
 gem 'groupdate'

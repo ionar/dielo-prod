@@ -227,7 +227,7 @@ GEM
     selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
-    simple_form (4.0.1)
+    simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     spring (2.0.2)
@@ -298,7 +298,7 @@ DEPENDENCIES
   ransack
   sass-rails (~> 5.0)
   selenium-webdriver
-  simple_form
+  simple_form (>= 5.0.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
@@ -310,4 +310,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.16.1
+   2.0.2
