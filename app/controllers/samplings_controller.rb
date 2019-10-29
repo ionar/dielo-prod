@@ -19,13 +19,14 @@ class SamplingsController < ApplicationController
     # calculo de diferenca por unidade
     #resultado=(a*b)/c;
 
-    a = Float(@sampling.product.peso_liquido)
-    b = @sampling.product.preco
-    c = Float(@sampling.product.peso_liquido - @sampling.peso)
+    # Desativado por enquanto
+    # a = Float(@sampling.product.peso_liquido)
+    # b = @sampling.product.preco
+    # c = Float(@sampling.product.peso_liquido - @sampling.peso)
 
-    @diferenca_por_unidade = (b*c)/a
+    # @diferenca_por_unidade = (b*c)/a
 
-    @diferenca_total = @diferenca_por_unidade * Float(@sampling.quantidade_produzida)
+    # @diferenca_total = @diferenca_por_unidade * Float(@sampling.quantidade_produzida)
 
   end
 

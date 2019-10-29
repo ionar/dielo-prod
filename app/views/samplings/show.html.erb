@@ -26,10 +26,6 @@
         <strong>Peso líquido do produto:</strong>
         <%= @sampling.product.peso_liquido %>g
       </p>
-      <p>
-        <strong>Preço do produto:</strong>
-        <%= number_to_currency(@sampling.product.preco, unit: 'R$', precision: 2, format: "%u %n") %>
-      </p>
 
       <p>
         <strong>Lote:</strong>

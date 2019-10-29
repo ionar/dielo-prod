@@ -19,11 +19,6 @@
   <%= @product.peso_liquido %>
 </p>
 
-<p>
-  <strong>Preço:</strong>
-  <%= number_to_currency(@product.preco, unit: 'R$', precision: 2, format: "%u %n") %>
-
-</p>
 <div class="fixed-action-btn">
   <%= link_to edit_product_path(@product), class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">create</i>
