@@ -1,7 +1,7 @@
 <h4>Produto #<%= @product.id %></h4>
 <p>
   <strong>Linha:</strong>
-  <%= @product.line.name %>
+  <%= @product.line.present? ? @product.line.name : "não vinculado" %>
 </p>
 <p>
   <strong>Nome:</strong>
