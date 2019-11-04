@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_165835) do
+ActiveRecord::Schema.define(version: 2019_11_04_114338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -22,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_165835) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "peso_liquido"
+    t.bigint "line_id"
+    t.index ["line_id"], name: "index_products_on_line_id"
   end
 
   create_table "samplings", force: :cascade do |t|
@@ -60,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_165835) do
     t.index ["sampling_id"], name: "index_weighings_on_sampling_id"
   end
 
+  add_foreign_key "products", "lines"
   add_foreign_key "samplings", "products"
   add_foreign_key "weighings", "samplings"
 end

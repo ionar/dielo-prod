@@ -1,0 +1,12 @@
+<h4>Editar Linha</h4>
+
+<%= render 'form', product: @line %>
+
+<div class="fixed-action-btn">
+  <%= link_to @line, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to lines_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>

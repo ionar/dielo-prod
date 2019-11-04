@@ -1,0 +1,40 @@
+<h4>Linhas</h4>
+<nav class="red darken-3">
+    <div class="nav-wrapper">
+      <%= search_form_for @q do |f| %>
+        <div class="input-field">
+          <%= f.search_field :name_cont, placeholder: "Buscar pelo nome" %>
+          <%= f.label :name_cont, class: "label-icon" do %>
+            <i class="material-icons">search</i>
+          <% end %>
+          <i class="material-icons">close</i>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+<div class="center-align">
+  <%= paginate @lines, views_prefix: 'paginator' %>
+  <small><%= page_entries_info @lines %></small>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name, 'Nome', {}, {remote: false, class: "red-text text-darken-3"}) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lines.each do |line| %>
+      <tr>
+        <td><%= link_to line.name, line %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn">
+  <%= link_to new_line_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

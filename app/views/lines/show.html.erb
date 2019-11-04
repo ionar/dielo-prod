@@ -1,0 +1,26 @@
+<h4>Linha #<%= @line.id %></h4>
+<p>
+  <strong>Nome:</strong>
+  <%= @line.name %>
+</p>
+
+<div class="fixed-action-btn">
+  <%= link_to edit_line_path(@line), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">create</i>
+  <% end %>
+  <%= link_to @line, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">delete</i>
+  <% end %>
+  <%= link_to lines_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">arrow_back</i>
+  <% end %>
+</div>
+
+
+<h4>Produtos desta linha:</h4>
+<% @line.products.each do |product| %>
+  <div>
+    <%= product.name %>
+    <hr>
+  </div>
+<% end %>

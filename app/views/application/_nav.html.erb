@@ -5,6 +5,7 @@
           <%= image_tag "dielo-logo-40.png", alt: "Dielo Prod" %>
       <% end %>
       <ul class="right hide-on-med-and-down">
+        <li class="<%= active?('lines')%>"><%= link_to "Linhas", lines_path %></li>
         <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
         <li class="<%= active?('samplings')%>"><%= link_to "Amostragens", samplings_path %></li>
         <li class="<%= active?('users')%>"><%= link_to current_user.email, edit_user_registration_path %></li>
@@ -12,6 +13,7 @@
       </ul>
  
       <ul id="slide-out" class="sidenav">
+        <li class="<%= active?('lines')%>"><%= link_to "Linhas", lines_path %></li>
         <li class="<%= active?('products')%>"><%= link_to "Produtos", products_path %></li>
         <li class="<%= active?('samplings')%>"><%= link_to "Amostragens", samplings_path %></li>
         <li class="<%= active?('users')%>"><%= link_to current_user.email, edit_user_registration_path %></li>
