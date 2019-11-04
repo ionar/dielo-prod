@@ -72,7 +72,7 @@ gem 'material_icons'
 gem 'materialize-form'
 gem "simple_form", ">= 5.0.0"
 gem 'jquery-turbolinks'
-gem 'chartkick'
+gem "chartkick", ">= 3.2.0"
 gem 'groupdate'
 gem 'active_median'
 gem 'kaminari'
