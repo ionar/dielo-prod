@@ -1,8 +1,4 @@
-<h4>Linha #<%= @line.id %></h4>
-<p>
-  <strong>Nome:</strong>
-  <%= @line.name %>
-</p>
+<h4>Linha: <%= @line.name %></h4>
 
 <div class="fixed-action-btn">
   <%= link_to edit_line_path(@line), class: "btn-floating btn-large waves-effect waves-light red" do %>
@@ -17,10 +13,14 @@
 </div>
 
 
-<h4>Produtos desta linha:</h4>
+<h5>Produtos desta linha:</h5>
 <% @line.products.each do |product| %>
-  <div>
-    <%= product.name %>
-    <hr>
-  </div>
+  <%= link_to product.name.upcase, product, class: "waves-effect waves-light" %> 
+  (Peso mínimo: <%= product.peso_minimo %>g | Peso máximo: <%= product.peso_maximo %>g | Peso líquido: <%= product.peso_liquido %>g)
+    <%= line_chart [ 
+      {name: "Peso amostragem", data: Product.joins(:samplings).where(id: product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso)},
+      {name: "Peso máximo", data: Product.joins(:samplings).where(id: product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso_maximo)},
+      {name: "Peso mínimo", data: Product.joins(:samplings).where(id: product).group_by_day(:data, format: "%d/%m/%Y", series: false).maximum(:peso_minimo)}
+      ], xtitle: "Data", ytitle: "Peso", min: nil, download: true %>
+  <hr>
 <% end %>

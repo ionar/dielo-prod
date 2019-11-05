@@ -49,7 +49,7 @@
 <h4>Histórico</h4>
 <% @product.samplings.each do |sampling| %>
   <p>
-  Data: <strong><%= sampling.data.strftime("%d/%m/%Y") %></strong>
+  Data: <strong><%= link_to sampling.data.strftime("%d/%m/%Y"), sampling %></strong>
   </p>
   <p>
   Peso médio da amostra: <strong><%= sampling.peso %></strong>
